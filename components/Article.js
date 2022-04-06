@@ -2,7 +2,7 @@ import React from "react";
 import Icon from "react-native-vector-icons/Entypo";
 import { View, Text, StyleSheet, Image } from "react-native";
 
-const Article = ({ name, slogan, images }) => {
+const Article = ({ name, slogan, photo }) => {
 	return (
 		<View style={styles.container}>
 			<View
@@ -26,15 +26,24 @@ const Article = ({ name, slogan, images }) => {
 				</View>
 			</View>
 			<View style={styles.imgContainer}>
-				<Image style={styles.mainImg} source={{ uri: images[0] }} />
+				<Image
+					style={styles.mainImg}
+					source={{
+						uri: String(photo),
+					}}
+				/>
 				<View style={styles.subMainImgContainer}>
 					<Image
 						style={styles.subMainImg}
-						source={{ uri: images[1] }}
+						source={{
+							uri: photo,
+						}}
 					/>
 					<Image
 						style={styles.subMainImg}
-						source={{ uri: images[2] }}
+						source={{
+							uri: photo,
+						}}
 					/>
 				</View>
 			</View>

@@ -14,7 +14,9 @@ import Icon1 from "react-native-vector-icons/AntDesign";
 const Menu = () => {
 	return (
 		<View style={styles.container}>
-			<ScrollView horizontal={true}>
+			<ScrollView
+				horizontal={true}
+				showsHorizontalScrollIndicator={false}>
 				<View>
 					<View style={{ flexDirection: "row" }}>
 						<Pressable onPress={() => Alert.alert("Khuyến mãi")}>

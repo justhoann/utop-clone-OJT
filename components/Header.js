@@ -23,7 +23,7 @@ function Dropdown() {
 	const [title, setTitle] = useState("Hà Nội");
 	const [modalVisible, setModalVisible] = useState(false);
 	return (
-		<View style={{ flex: 2, alignItems: "center" }}>
+		<View style={styles.dropdownContainer}>
 			<Pressable onPress={() => setModalVisible((pre) => !pre)}>
 				<Modal
 					animationType='fade'
@@ -38,9 +38,9 @@ function Dropdown() {
 					/>
 				</Modal>
 				<View style={styles.dropdown}>
-					<Icon name='location-pin' size={20} color='#000' />
+					<Icon name='location-pin' size={20} color='#fff' />
 					<Text style={styles.textHeader}>{title}</Text>
-					<Icon name='select-arrows' size={20} color='#000' />
+					<Icon name='select-arrows' size={20} color='#fff' />
 				</View>
 			</Pressable>
 		</View>
@@ -64,14 +64,13 @@ function SearchBox() {
 }
 
 function Bell(props) {
-	console.log("bell: ", props);
 	return (
 		<Pressable
 			onPress={() => {
 				props.navigation.navigate("NotificationScreen");
 			}}>
 			<View style={styles.bell}>
-				<Icon1 name='bells' size={30} color='#000' />
+				<Icon1 name='bells' size={30} color='#fff' />
 			</View>
 		</Pressable>
 	);
@@ -88,9 +87,9 @@ function Features() {
 						name='wallet'
 						size={40}
 						style={{ marginVertical: 5 }}
-						color='#000'
+						color='#fff'
 					/>
-					<Text>Nạp tiền</Text>
+					<Text style={styles.whiteText}>Nạp tiền</Text>
 				</View>
 			</Pressable>
 			<Pressable
@@ -101,9 +100,9 @@ function Features() {
 						name='mobile1'
 						size={40}
 						style={{ marginVertical: 5 }}
-						color='#000'
+						color='#fff'
 					/>
-					<Text>Nạp thẻ ĐT</Text>
+					<Text style={styles.whiteText}>Nạp thẻ ĐT</Text>
 				</View>
 			</Pressable>
 			<Pressable
@@ -114,9 +113,9 @@ function Features() {
 						name='contacts'
 						size={40}
 						style={{ marginVertical: 5 }}
-						color='#000'
+						color='#fff'
 					/>
-					<Text>Membership</Text>
+					<Text style={styles.whiteText}>Membership</Text>
 				</View>
 			</Pressable>
 			<Pressable
@@ -127,9 +126,9 @@ function Features() {
 						name='qrcode'
 						size={40}
 						style={{ marginVertical: 5 }}
-						color='#000'
+						color='#fff'
 					/>
-					<Text>Quét QR</Text>
+					<Text style={styles.whiteText}>Quét QR</Text>
 				</View>
 			</Pressable>
 		</View>
@@ -137,13 +136,18 @@ function Features() {
 }
 
 const styles = StyleSheet.create({
+	whiteText: {
+		color: "white",
+	},
 	header: {
 		marginTop: 35,
 		flexDirection: "row",
 	},
 	textHeader: {
 		fontSize: 20,
+		color: "#fff",
 	},
+	dropdownContainer: { flex: 2, alignItems: "center" },
 	dropdown: {
 		flexDirection: "row",
 		alignItems: "center",

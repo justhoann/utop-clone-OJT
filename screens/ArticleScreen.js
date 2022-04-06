@@ -5,12 +5,12 @@ const ArticleScreen = (prop) => {
 	useLayoutEffect(() => {
 		prop.navigation.setOptions({
 			tabBarVisible: false,
-			title: prop.route.params?.item.name || "No title",
+			title: prop.route.params?.item.title || "No title",
 		});
 	}, []);
 	return (
 		<View style={styles.containerArticle}>
-			<Text>{prop.route.params?.item.slogan}</Text>
+			<Text>{prop.route.params?.item.title}</Text>
 		</View>
 	);
 };

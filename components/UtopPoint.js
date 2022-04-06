@@ -5,7 +5,7 @@ const UtopPoint = () => {
 	return (
 		<View style={styles.container}>
 			<Text>Điểm Utop của bạn</Text>
-			<Text style={{ color: "red", fontSize: 20 }}>30</Text>
+			<Text style={{ color: "red", fontSize: 20 }}>999</Text>
 		</View>
 	);
 };

@@ -27,7 +27,6 @@ const HomeScreenContainer = () => {
 				options={{
 					headerShown: true,
 					title: "Article",
-					tabBarVisible: false,
 				}}
 			/>
 		</Stack.Navigator>

@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
 	},
 	dotActive: {
 		marginHorizontal: 2,
-		color: "#000",
+		color: "#300",
 	},
 	dot: {
 		marginHorizontal: 2,
