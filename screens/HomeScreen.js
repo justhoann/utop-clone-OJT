@@ -5,6 +5,7 @@ import {
 	FlatList,
 	Dimensions,
 	Alert,
+	StyleSheet,
 } from "react-native";
 import ImageBackground from "react-native/Libraries/Image/ImageBackground";
 import Menu from "../components/Menu";
@@ -14,9 +15,9 @@ import SlideImg from "./../components/SlideImg";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ArticleScreen from "../screens/ArticleScreen";
 import ArticleContainer from "../components/ArticleContainer";
+const WIDTH = Dimensions.get("window").width;
 
 const HomeScreen = (props) => {
-	const WIDTH = Dimensions.get("window").width;
 	const Stack = createNativeStackNavigator();
 	const [refreshing, setRefreshing] = useState(false);
 	const onRefresh = useCallback(() => {
@@ -28,10 +29,7 @@ const HomeScreen = (props) => {
 		<ImageBackground
 			source={require("../assets/WallpaperDog-10734561.jpg")}
 			resizeMode='cover'
-			style={{
-				width: WIDTH,
-				flex: 1,
-			}}>
+			style={styles.imagesBackground}>
 			<Header navigation={props.navigation} />
 			<UtopPoint />
 			<FlatList
@@ -42,27 +40,37 @@ const HomeScreen = (props) => {
 					/>
 				}
 				data={[]}
-				ListHeaderComponent={() => {
-					return (
-						<View>
-							<Menu />
-							<SlideImg />
-						</View>
-					);
-				}}
-				ListFooterComponent={() => (
-					<View>
-						<Stack.Navigator>
-							<Stack.Screen
-								name='article'
-								component={ArticleScreen}
-							/>
-						</Stack.Navigator>
-						<ArticleContainer props={props} />
-					</View>
-				)}
+				ListHeaderComponent={() => <ListHeaderComponent />}
+				ListFooterComponent={() => <ListFooterComponent />}
 			/>
 		</ImageBackground>
+	);
+};
+
+const styles = StyleSheet.create({
+	imagesBackground: {
+		width: WIDTH,
+		flex: 1,
+	},
+});
+
+const ListHeaderComponent = () => {
+	return (
+		<View>
+			<Menu />
+			<SlideImg />
+		</View>
+	);
+};
+
+const ListFooterComponent = () => {
+	return (
+		<View>
+			<Stack.Navigator>
+				<Stack.Screen name='article' component={ArticleScreen} />
+			</Stack.Navigator>
+			<ArticleContainer props={props} />
+		</View>
 	);
 };
 
