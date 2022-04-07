@@ -15,11 +15,30 @@ import SlideImg from "./../components/SlideImg";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ArticleScreen from "../screens/ArticleScreen";
 import ArticleContainer from "../components/ArticleContainer";
-const WIDTH = Dimensions.get("window").width;
 
+const WIDTH = Dimensions.get("window").width;
 const HomeScreen = (props) => {
 	const Stack = createNativeStackNavigator();
 	const [refreshing, setRefreshing] = useState(false);
+	const ListHeaderComponent = () => {
+		return (
+			<View>
+				<Menu />
+				<SlideImg />
+			</View>
+		);
+	};
+
+	const ListFooterComponent = () => {
+		return (
+			<View>
+				<Stack.Navigator>
+					<Stack.Screen name='article' component={ArticleScreen} />
+				</Stack.Navigator>
+				<ArticleContainer props={props} />
+			</View>
+		);
+	};
 	const onRefresh = useCallback(() => {
 		setRefreshing(true);
 		Alert.alert("on refresh");
@@ -39,7 +58,6 @@ const HomeScreen = (props) => {
 						onRefresh={onRefresh}
 					/>
 				}
-				data={[]}
 				ListHeaderComponent={() => <ListHeaderComponent />}
 				ListFooterComponent={() => <ListFooterComponent />}
 			/>
@@ -53,25 +71,5 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 });
-
-const ListHeaderComponent = () => {
-	return (
-		<View>
-			<Menu />
-			<SlideImg />
-		</View>
-	);
-};
-
-const ListFooterComponent = () => {
-	return (
-		<View>
-			<Stack.Navigator>
-				<Stack.Screen name='article' component={ArticleScreen} />
-			</Stack.Navigator>
-			<ArticleContainer props={props} />
-		</View>
-	);
-};
 
 export default HomeScreen;
