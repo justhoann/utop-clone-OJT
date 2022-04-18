@@ -14,6 +14,8 @@ import Menu from "../components/HomeScreen/Menu";
 import SlideImg from "../components/HomeScreen/SlideImg";
 import ArticleScreen from "./ArticleScreen";
 import UtopPoint from "../components/HomeScreen/UtopPoint";
+import Header from "./../components/HomeScreen/Header";
+import ArticleContainer from "../components/HomeScreen/ArticleContainer";
 
 const WIDTH = Dimensions.get("window").width;
 const HomeScreenInner = (props) => {

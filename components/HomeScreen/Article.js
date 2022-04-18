@@ -10,7 +10,7 @@ const Article = ({ name, slogan, photo }) => {
 					flexDirection: "row",
 				}}>
 				<Image
-					source={require("../assets/articleImages/utoplogo.jpg")}
+					source={require("../../assets/articleImages/utoplogo.jpg")}
 					style={styles.logo}
 				/>
 				<View style={styles.content}>

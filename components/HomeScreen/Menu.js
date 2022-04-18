@@ -1,3 +1,4 @@
+import Icon1 from "react-native-vector-icons/AntDesign";
 import React from "react";
 import {
 	View,
@@ -8,8 +9,7 @@ import {
 	Pressable,
 	Alert,
 } from "react-native";
-import { features } from "../data/features";
-import Icon1 from "react-native-vector-icons/AntDesign";
+import { features } from "./../../data/features";
 
 const Menu = () => {
 	return (

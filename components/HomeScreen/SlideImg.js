@@ -8,7 +8,7 @@ import {
 	Image,
 	Text,
 } from "react-native";
-import { imgSlide } from "../data/imgSlide";
+import { imgSlide } from "../../data/imgSlide";
 const WIDTH = Dimensions.get("window").width;
 const HEIGHT = Dimensions.get("window").height;
 
