@@ -1,19 +1,20 @@
+import Icon from "react-native-vector-icons/AntDesign";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
+
 import MenuScreen from "./screens/MenuScreen";
 import HistoryScreen from "./screens/HistoryScreen";
 import VideoScreen from "./screens/VideoScreen";
 import VoucherScreen from "./screens/VoucherScreen";
-import { NavigationContainer } from "@react-navigation/native";
-
-import Icon from "react-native-vector-icons/AntDesign";
-import HomeScreenContainer from "./screens/HomeScreenContainer";
+import HomeScreen from "./screens/HomeScreen";
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
 	return (
 		<NavigationContainer>
+			<StatusBar style='light' />
 			<Tab.Navigator
 				screenOptions={{
 					tabBarShowLabel: false,
@@ -21,7 +22,7 @@ export default function App() {
 				}}>
 				<Tab.Screen
 					name='HomeScreenContainer'
-					component={HomeScreenContainer}
+					component={HomeScreen}
 					options={{
 						headerShown: false,
 						tabBarIcon: HomeIcon,

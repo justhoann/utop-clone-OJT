@@ -1,75 +1,40 @@
-import React, { useState, useCallback } from "react";
-import {
-	View,
-	RefreshControl,
-	FlatList,
-	Dimensions,
-	Alert,
-	StyleSheet,
-} from "react-native";
-import ImageBackground from "react-native/Libraries/Image/ImageBackground";
-import Menu from "../components/Menu";
-import Header from "../components/Header";
-import UtopPoint from "../components/UtopPoint";
-import SlideImg from "./../components/SlideImg";
+import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ArticleScreen from "../screens/ArticleScreen";
-import ArticleContainer from "../components/ArticleContainer";
 
-const WIDTH = Dimensions.get("window").width;
-const HomeScreen = (props) => {
-	const Stack = createNativeStackNavigator();
-	const [refreshing, setRefreshing] = useState(false);
-	const ListHeaderComponent = () => {
-		return (
-			<View>
-				<Menu />
-				<SlideImg />
-			</View>
-		);
-	};
+import ArticleScreen from "./ArticleScreen";
+import NotiScreen from "./NotiScreen";
 
-	const ListFooterComponent = () => {
-		return (
-			<View>
-				<Stack.Navigator>
-					<Stack.Screen name='article' component={ArticleScreen} />
-				</Stack.Navigator>
-				<ArticleContainer props={props} />
-			</View>
-		);
-	};
-	const onRefresh = useCallback(() => {
-		setRefreshing(true);
-		Alert.alert("on refresh");
-		setRefreshing(false);
-	}, []);
+import HomeScreenInner from "./HomeScreenInner";
+const Stack = createNativeStackNavigator();
+const HomeScreenContainer = () => {
 	return (
-		<ImageBackground
-			source={require("../assets/WallpaperDog-10734561.jpg")}
-			resizeMode='cover'
-			style={styles.imagesBackground}>
-			<Header navigation={props.navigation} />
-			<UtopPoint />
-			<FlatList
-				refreshControl={
-					<RefreshControl
-						refreshing={refreshing}
-						onRefresh={onRefresh}
-					/>
-				}
-				ListHeaderComponent={() => <ListHeaderComponent />}
-				ListFooterComponent={() => <ListFooterComponent />}
-			/>
-		</ImageBackground>
+		<>
+			<Stack.Navigator>
+				<Stack.Screen
+					name='HomeScreen'
+					component={HomeScreenInner}
+					options={{
+						headerShown: false,
+					}}
+				/>
+				<Stack.Screen
+					name='NotificationScreen'
+					component={NotiScreen}
+					options={{
+						headerShown: false,
+					}}
+				/>
+				<Stack.Screen
+					name='article'
+					component={ArticleScreen}
+					options={{
+						headerShown: true,
+						title: "Article",
+					}}
+				/>
+			</Stack.Navigator>
+		</>
 	);
 };
 
-const styles = StyleSheet.create({
-	imagesBackground: {
-		width: WIDTH,
-		flex: 1,
-	},
-});
-
-export default HomeScreen;
+export default HomeScreenContainer;
