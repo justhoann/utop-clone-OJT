@@ -4,7 +4,7 @@ import React from "react";
 export default function NotAvailableVoucher() {
 	return (
 		<View>
-			<Text>NotAvailableVoucher</Text>
+			<Text></Text>
 		</View>
 	);
 }
