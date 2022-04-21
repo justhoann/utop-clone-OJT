@@ -1,14 +1,17 @@
 import Icon from "react-native-vector-icons/AntDesign";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import MenuScreen from "./screens/MenuScreen";
 import HistoryScreen from "./screens/HistoryScreen";
 import VideoScreen from "./screens/VideoScreen";
 import VoucherScreen from "./screens/VoucherScreen";
 import HomeScreen from "./screens/HomeScreen";
+import InformationScreen from "./screens/InformationScreen";
 
+const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -18,7 +21,6 @@ export default function App() {
 			<Tab.Navigator
 				screenOptions={{
 					tabBarShowLabel: false,
-					tabBarStyle: [{ display: "flex" }, null],
 				}}>
 				<Tab.Screen
 					name='HomeScreenContainer'
@@ -53,8 +55,8 @@ export default function App() {
 					}}
 				/>
 				<Tab.Screen
-					name='MenuScreen'
-					component={MenuScreen}
+					name='MenuContainerScreen'
+					component={MenuContainerScreen}
 					options={{
 						headerShown: false,
 						tabBarIcon: MenuIcon,
@@ -62,6 +64,28 @@ export default function App() {
 				/>
 			</Tab.Navigator>
 		</NavigationContainer>
+	);
+}
+
+function MenuContainerScreen() {
+	return (
+		<Stack.Navigator initialRouteName='MenuScreen'>
+			<Stack.Screen
+				name='MenuScreen'
+				component={MenuScreen}
+				options={{
+					headerShown: false,
+					tabBarIcon: MenuIcon,
+				}}
+			/>
+			<Stack.Screen
+				name='InformationScreen'
+				component={InformationScreen}
+				options={{
+					headerShown: false,
+				}}
+			/>
+		</Stack.Navigator>
 	);
 }
 

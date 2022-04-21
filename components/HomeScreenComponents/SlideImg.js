@@ -65,18 +65,18 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		marginHorizontal: 10,
-		marginVertical: 5,
+		marginVertical: 0,
 		borderRadius: 8,
 		overflow: "hidden",
 	},
 	wrap: {
 		borderRadius: 8,
-		width: WIDTH - 20,
+		width: WIDTH,
 		height: HEIGHT * 0.25,
 	},
 	wrapDot: {
 		position: "absolute",
-		top: 10,
+		bottom: 10,
 		left: 20,
 		flexDirection: "row",
 		alignSelf: "flex-start",

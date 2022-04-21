@@ -10,12 +10,13 @@ import {
 	ImageBackground,
 } from "react-native";
 
-import Menu from "../components/HomeScreen/Menu";
-import SlideImg from "../components/HomeScreen/SlideImg";
+import Menu from "./../components/HomeScreenComponents/Menu";
+import SlideImg from "../components/HomeScreenComponents/SlideImg";
 import ArticleScreen from "./ArticleScreen";
-import UtopPoint from "../components/HomeScreen/UtopPoint";
-import Header from "./../components/HomeScreen/Header";
-import ArticleContainer from "../components/HomeScreen/ArticleContainer";
+import ArticleContainer from "./../components/HomeScreenComponents/ArticleContainer";
+import Header from "./../components/HomeScreenComponents/Header";
+import UtopPoint from "./../components/HomeScreenComponents/UtopPoint";
+import { StatusBar } from "expo-status-bar";
 
 const WIDTH = Dimensions.get("window").width;
 const HomeScreenInner = (props) => {
@@ -23,10 +24,13 @@ const HomeScreenInner = (props) => {
 	const [refreshing, setRefreshing] = useState(false);
 	const ListHeaderComponent = () => {
 		return (
-			<View>
-				<Menu />
-				<SlideImg />
-			</View>
+			<>
+				<StatusBar style='light' />
+				<View>
+					<Menu />
+					<SlideImg />
+				</View>
+			</>
 		);
 	};
 

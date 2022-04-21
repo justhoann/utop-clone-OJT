@@ -18,7 +18,7 @@ const Menu = () => {
 				horizontal={true}
 				showsHorizontalScrollIndicator={false}>
 				<View>
-					<View style={{ flexDirection: "row" }}>
+					<View style={styles.wrapInnerContainer}>
 						<Pressable onPress={() => Alert.alert("Khuyến mãi")}>
 							<Item
 								title={features[0].title}
@@ -89,7 +89,7 @@ const Item = ({ title, icon, color }) => {
 	return (
 		<View style={styles.item}>
 			<Icon1 name={icon} size={40} color={color} />
-			<Text style={{ marginTop: 5 }}>{title}</Text>
+			<Text style={styles.text}>{title}</Text>
 		</View>
 	);
 };
@@ -102,11 +102,13 @@ const styles = StyleSheet.create({
 		backgroundColor: "#fff",
 		borderRadius: 8,
 	},
+	wrapInnerContainer: { flexDirection: "row" },
 	item: {
 		justifyContent: "center",
 		alignItems: "center",
 		marginVertical: 15,
 		width: 80,
 	},
+	text: { marginTop: 5 },
 });
 export default Menu;

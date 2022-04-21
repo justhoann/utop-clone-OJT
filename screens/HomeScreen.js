@@ -6,7 +6,7 @@ import NotiScreen from "./NotiScreen";
 
 import HomeScreenInner from "./HomeScreenInner";
 const Stack = createNativeStackNavigator();
-const HomeScreenContainer = () => {
+const HomeScreen = () => {
 	return (
 		<>
 			<Stack.Navigator>
@@ -37,4 +37,4 @@ const HomeScreenContainer = () => {
 	);
 };
 
-export default HomeScreenContainer;
+export default HomeScreen;

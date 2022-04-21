@@ -25,6 +25,10 @@ const ArticleContainer = (props) => {
 				const newState = data.concat(resData);
 				setData(newState);
 				setIsLoading(false);
+			})
+			.catch((err) => {
+				console.log(err);
+				Alert.alert("error");
 			});
 	};
 
