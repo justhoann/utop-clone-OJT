@@ -1,11 +1,15 @@
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 import React from "react";
+import { StatusBar } from "expo-status-bar";
 
 export default function TitleHeader({ children }) {
 	return (
-		<View style={styles.container}>
-			<Text style={styles.text}>{children}</Text>
-		</View>
+		<>
+			<StatusBar style='auto' />
+			<View style={styles.container}>
+				<Text style={styles.text}>{children}</Text>
+			</View>
+		</>
 	);
 }
 const HEIGHT = Dimensions.get("window").height;
@@ -16,7 +20,7 @@ const styles = StyleSheet.create({
 		height: HEIGHT * 0.11,
 		padding: 8,
 		alignItems: "center",
-		justifyContent: "flex-end",
+		justifyContent: "center",
 		backgroundColor: "yellow",
 	},
 	text: {

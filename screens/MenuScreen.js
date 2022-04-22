@@ -1,5 +1,7 @@
 import React from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
 import SectionHeader from "../components/HistoryScreenComponents/SectionHeader";
 import TitleHeader from "./../components/TitleHeader";
 import ItemMenu from "./../components/MenuComponents/ItemMenu";
@@ -9,6 +11,8 @@ const MenuScreen = ({ navigation }) => {
 		navigation.navigate(name);
 	};
 	return (
+		// <SafeAreaView style={styles.container}>
+		// </SafeAreaView>
 		<ScrollView style={styles.container}>
 			<TitleHeader>Menu</TitleHeader>
 			<View style={styles.subContainer}>
